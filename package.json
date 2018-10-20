@@ -1,0 +1,47 @@
+{
+  "name": "styled-react-boilerplate",
+  "version": "1.0.0",
+  "description": "Minimal & Modern boilerplate for building apps with React & styled-components",
+  "scripts": {
+    "start": "webpack-dev-server --hot --open --mode development",
+    "build": "webpack --mode production",
+    "test": "xo && stylelint './src/**/*.js'"
+  },
+  "main": "src/index.js",
+  "repository": "https://github.com/xxczaki/styled-react-boilerplate",
+  "author": "Antoni Kepinski",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-styled-components": "^1.8.0",
+    "eslint-config-xo-react": "^0.17.0",
+    "eslint-plugin-react": "^7.11.1",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "script-ext-html-webpack-plugin": "^2.0.1",
+    "stylelint": "^9.6.0",
+    "stylelint-config-recommended": "^2.1.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.5.0",
+    "webpack": "^4.21.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9",
+    "xo": "^0.23.0"
+  },
+  "dependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "styled-components": "^4.0.2"
+  },
+  "xo": {
+    "extends": "xo-react",
+    "envs": "browser",
+    "esnext": true,
+    "rules": {
+      "react/no-unescaped-entities": null
+    }
+  }
+}
