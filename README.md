@@ -14,7 +14,7 @@
 - [xo](https://github.com/xojs/xo)
 - [stylelint](https://stylelint.io/)
 
-# Why
+## Why
 - It's easier and less complex than [create-react-app](https://github.com/facebook/create-react-app)
 - Features styled-components
 - Uses the latest Webpack & Babel
@@ -22,5 +22,50 @@
 - Normalizes default style with modern-normalize
 - HTML template with social media meta tags
 - Targets the latest browsers
+- Uses Webpack's [HMR](https://webpack.js.org/concepts/hot-module-replacement/)
 
-more soon
+## File Tree
+```bash
+├── public   # HTML Template & Favicon 
+│   ├── favicon.png
+│   └── index.html
+├── src   # Main folder with index.js
+│   ├── components   # Subfolder with components
+│   │   ├── container.js
+│   │   └── header.js   # Example component
+│   └── index.js   # Main file
+├── .gitignore
+├── .npmrc   # npm config
+├── .stylelintrc   # stylelint config
+├── .travis.yml   # Travis CI config
+├── package.json   # Package config with scripts, list of dependencies etc.
+├── webpack.config.js   # Webpack config
+├── babel.config.js   # Babel config
+
+```
+
+## Usage
+Install dependencies
+```bash
+npm install
+```
+
+Start webpack-dev-server with hot reload at port `5000`
+```bash
+npm start
+```
+
+Run linters
+```bash
+npm test
+```
+
+Build app for production
+```bash
+npm run build
+```
+
+### License
+
+MIT
+
