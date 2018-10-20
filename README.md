@@ -44,24 +44,25 @@
 ```
 
 ## Usage
-Install dependencies
-```bash
-npm install
-```
-
-Start webpack-dev-server with hot reload at port `5000`
-```bash
-npm start
-```
-
-Run linters
-```bash
-npm test
-```
-
-Build app for production
 ```bash
 npm run build
+```
+```bash
+# Install dependencies
+
+ $ npm install
+ 
+# Start webpack-dev-server with HMR at port 5000
+
+ $ npm start
+ 
+# Run linters
+
+ $ npm test
+ 
+# Build app for production
+
+ $ npm run build
 ```
 
 ### License
