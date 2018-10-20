@@ -26,21 +26,20 @@
 
 ## File Tree
 ```bash
-├── public   # HTML Template & Favicon 
-│   ├── favicon.png
-│   └── index.html
-├── src   # Main folder with index.js
-│   ├── components   # Subfolder with components
-│   │   ├── container.js
-│   │   └── header.js   # Example component
-│   └── index.js   # Main file
-├── .gitignore
-├── .npmrc   # npm config
-├── .stylelintrc   # stylelint config
-├── .travis.yml   # Travis CI config
-├── package.json   # Package config with scripts, list of dependencies etc.
-├── webpack.config.js   # Webpack config
-├── babel.config.js   # Babel config
+├── public                # Folder with HTML template & favicon
+│   ├── favicon.png       # Example favicon
+│   └── index.html        # HTML template
+├── src                   # Main folder with index.js & components
+│   ├── components        # Subfolder with components
+│   │   ├── container.js  # Example component 1
+│   │   └── header.js     # Example component 2
+│   └── index.js          # Main file
+├── .npmrc                # npm config
+├── .stylelintrc          # stylelint config
+├── .travis.yml           # Travis CI config
+├── package.json          # Package config with scripts, list of dependencies etc.
+├── webpack.config.js     # Webpack config
+├── babel.config.js       # Babel config
 
 ```
 
@@ -68,4 +67,3 @@ npm run build
 ### License
 
 MIT
-
