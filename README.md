@@ -45,9 +45,6 @@
 
 ## Usage
 ```bash
-npm run build
-```
-```bash
 # Install dependencies
 
  $ npm install
