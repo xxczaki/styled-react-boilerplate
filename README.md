@@ -6,7 +6,7 @@
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 
 ## Features
-- [React](https://react.org)
+- [React](https://reactjs.org)
 - [styled-components](https://www.styled-components.com/)
 - [Webpack 4](https://webpack.js.org/)
 - [Babel 7](https://babeljs.io/)
