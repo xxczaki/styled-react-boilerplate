@@ -21,20 +21,24 @@
     "eslint-plugin-react": "^7.11.1",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
-    "script-ext-html-webpack-plugin": "^2.0.1",
-    "stylelint": "^9.6.0",
+    "imagemin": "^6.0.0",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-pngquant": "^6.0.0",
+    "img-loader": "^3.0.1",
+    "script-ext-html-webpack-plugin": "^2.0.3",
+    "stylelint": "^9.7.0",
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.5.0",
-    "webpack": "^4.21.0",
+    "webpack": "^4.23.1",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.9",
+    "webpack-dev-server": "^3.1.10",
     "xo": "^0.23.0"
   },
   "dependencies": {
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "styled-components": "^4.0.2"
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "styled-components": "^4.0.3"
   },
   "xo": {
     "extends": "xo-react",

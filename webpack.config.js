@@ -10,7 +10,6 @@ module.exports = {
 	},
 	devServer: {
 		contentBase: path.join(__dirname, 'dist'),
-		port: 5000,
 		compress: true,
 		hot: true
 	},
@@ -23,7 +22,23 @@ module.exports = {
 			},
 			{
 				test: /\.(pdf|jpg|png|gif|svg|ico)$/,
-				loader: 'file-loader'
+				use: [
+					'file-loader',
+					{
+						loader: 'img-loader',
+						options: {
+							plugins: [
+								require('imagemin-mozjpeg')({
+									progressive: true
+								}),
+								require('imagemin-pngquant')({
+									floyd: 0.5,
+									speed: 5
+								})
+							]
+						}
+					}
+				]
 			}
 		]
 	},
