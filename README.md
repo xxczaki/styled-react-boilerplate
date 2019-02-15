@@ -1,4 +1,5 @@
 # Styled React Boilerplate ⚛️ 💅
+
 > Minimal & Modern Boilerplate for building apps with React & styled-components
 
 [![Build Status](https://travis-ci.org/xxczaki/styled-react-boilerplate.svg?branch=master)](https://travis-ci.org/xxczaki/styled-react-boilerplate) 
@@ -7,24 +8,18 @@
 
 ---
 
-## Features
-- [React](https://reactjs.org)
-- [styled-components](https://www.styled-components.com/)
-- [Webpack 4](https://webpack.js.org/)
-- [Babel 7](https://babeljs.io/)
-- [modern-normalize](https://github.com/sindresorhus/modern-normalize)
-- [xo](https://github.com/xojs/xo)
-- [stylelint](https://stylelint.io/)
-
-## Why
-- It's easier and less complex than [create-react-app](https://github.com/facebook/create-react-app)
+## Highlights
+- Easier and less complex than [create-react-app](https://github.com/facebook/create-react-app)
 - Features styled-components
-- Uses the latest Webpack & Babel
+- Uses React Hooks
+- Includes optimized Webpack & Babel configuration
+- Non-blocking CSS & fonts loading
+- Friendly errors & warnings
 - Ensures clean code with xo & stylelint
 - Normalizes default style with modern-normalize
 - HTML template with social media meta tags
 - Targets the latest browsers
-- Uses Webpack's [HMR](https://webpack.js.org/concepts/hot-module-replacement/)
+- Preconfigured hot reloading using [react-hot-loader](https://github.com/gaearon/react-hot-loader)
 
 ## File Tree
 ```bash
@@ -33,8 +28,10 @@
 │   └── index.html        # HTML template
 ├── src                   # Main folder with index.js & components
 │   ├── components        # Subfolder with components
-│   │   ├── container.js  # Example component 1
-│   │   └── header.js     # Example component 2
+│   │   ├── button.js     # Example component 1
+│   │   └── container.js  # Example component 2
+│   │   └── counter.js    # Example component 3
+│   │   └── header.js     # Example component 4
 │   └── index.js          # Main file
 ├── .npmrc                # npm config
 ├── .stylelintrc          # stylelint config
@@ -51,7 +48,7 @@
 
  $ npm install
  
-# Start webpack-dev-server with HMR at port 5000
+# Start webpack-dev-server at port 5000
 
  $ npm start
  
@@ -59,10 +56,15 @@
 
  $ npm test
  
-# Build app for production
+# Build app for production (gets output in the 'dist' directory)
 
  $ npm run build
 ```
+
+## TODO
+
+- [ ] Testing
+- [ ] PWA
 
 ### License
 
