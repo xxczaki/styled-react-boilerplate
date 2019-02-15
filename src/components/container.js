@@ -1,5 +1,7 @@
 import styled from 'styled-components';
+import {hot} from 'react-hot-loader/root';
 
+// Flexbox container
 const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -8,8 +10,6 @@ const Container = styled.div`
     max-width: 50em;
     padding-left: 15px;
     padding-right: 15px;
-    align-items: center;
-    justify-content: center
 `;
 
-export default Container;
+export default hot(Container);
