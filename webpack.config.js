@@ -1,9 +1,11 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+
+const moduleList = ['react', 'react-dom', 'styled-components'];
 
 module.exports = {
 	entry: './src/index.js',
@@ -12,18 +14,21 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist')
 	},
 	optimization: {
+		minimizer: [
+			new TerserPlugin({
+				parallel: true
+			})
+		],
 		runtimeChunk: 'single',
 		splitChunks: {
-			chunks: 'all',
-			maxInitialRequests: Infinity,
-			minSize: 0,
 			cacheGroups: {
 				vendor: {
-					test: /[\\/]node_modules[\\/]/,
-					name(module) {
-						const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
-						return `npm.${packageName.replace('@', '')}`;
-					}
+					test: new RegExp(
+						`[\\/]node_modules[\\/](${moduleList.join('|')})[\\/]`
+					),
+					chunks: 'initial',
+					name: 'vendors',
+					enforce: true
 				}
 			}
 		}
@@ -106,8 +111,6 @@ module.exports = {
 				hot: true
 			}
 		),
-		new webpack.optimize.ModuleConcatenationPlugin(),
-		new webpack.HashedModuleIdsPlugin(),
 		new ScriptExtHtmlWebpackPlugin({
 			prefetch: /\.js$/,
 			defaultAttribute: 'async'
