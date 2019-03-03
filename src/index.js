@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {createGlobalStyle} from 'styled-components';
+import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 
 // Import modern-normalize & fonts
 import 'typeface-open-sans';
@@ -10,6 +11,9 @@ import 'modern-normalize/modern-normalize.css';
 import Container from './components/container';
 import Header from './components/header';
 import Counter from './components/counter';
+
+// Install Service Worker
+OfflinePluginRuntime.install();
 
 // Global Style
 const GlobalStyle = createGlobalStyle`
