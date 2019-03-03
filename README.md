@@ -21,6 +21,7 @@
 - Normalizes default style with modern-normalize
 - HTML template with social media meta tags
 - Targets the latest browsers
+- Works offline
 - Preconfigured hot reloading using [react-hot-loader](https://github.com/gaearon/react-hot-loader)
 
 ## File Tree
