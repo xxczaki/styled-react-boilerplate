@@ -68,7 +68,7 @@
 ## TODO
 
 - [ ] Testing
-- [ ] PWA
+- [x] PWA
 - [ ] More detailed user guide
 
 ### License
