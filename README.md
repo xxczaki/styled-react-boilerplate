@@ -50,7 +50,7 @@
 
  $ npm install
  
-# Start webpack-dev-server at port 5000
+# Start webpack-dev-server at port 8000
 
  $ npm start
  
