@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 const moduleList = ['react', 'react-dom', 'styled-components'];
@@ -115,6 +116,7 @@ module.exports = {
 			prefetch: /\.js$/,
 			defaultAttribute: 'async'
 		}),
+		new OfflinePlugin(),
 		new FriendlyErrorsWebpackPlugin()
 	]
 };
