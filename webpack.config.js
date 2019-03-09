@@ -56,7 +56,8 @@ module.exports = {
 				test: /\.css$/,
 				use: [
 					ExtractCssChunks.loader,
-					'css-loader'
+					'css-loader',
+					'clean-css-loader'
 				]
 			},
 			{
