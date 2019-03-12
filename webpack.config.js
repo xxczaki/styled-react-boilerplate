@@ -17,7 +17,8 @@ module.exports = {
 	optimization: {
 		minimizer: [
 			new TerserPlugin({
-				parallel: true
+				parallel: true,
+				cache: true
 			})
 		],
 		runtimeChunk: 'single',
