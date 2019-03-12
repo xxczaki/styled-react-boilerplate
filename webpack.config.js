@@ -4,32 +4,57 @@ const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
+const {HashedModuleIdsPlugin} = require('webpack');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-
-const moduleList = ['react', 'react-dom', 'styled-components'];
 
 module.exports = {
 	entry: './src/index.js',
 	output: {
 		filename: '[name].[hash].js',
+		chunkFilename: '[name].[chunkhash].chunk.js',
 		path: path.resolve(__dirname, 'dist')
 	},
 	optimization: {
+		minimize: true,
 		minimizer: [
 			new TerserPlugin({
+				terserOptions: {
+					warnings: false,
+					compress: {
+						comparisons: false
+					},
+					parse: {},
+					mangle: true,
+					output: {
+						comments: false,
+						/* eslint-disable camelcase */
+						ascii_only: true
+						/* eslint-enable camelcase */
+					}
+				},
 				parallel: true,
-				cache: true
+				cache: true,
+				sourceMap: true
 			})
 		],
-		runtimeChunk: 'single',
+		runtimeChunk: true,
 		splitChunks: {
+			chunks: 'all',
+			minSize: 30000,
+			minChunks: 1,
+			maxAsyncRequests: 5,
+			maxInitialRequests: 3,
+			name: true,
 			cacheGroups: {
-				vendor: {
-					test: new RegExp(
-						`[\\/]node_modules[\\/](${moduleList.join('|')})[\\/]`
-					),
-					chunks: 'initial',
-					name: 'vendors',
+				commons: {
+					test: /[\\/]node_modules[\\/]/,
+					name: 'vendor',
+					chunks: 'all'
+				},
+				main: {
+					chunks: 'all',
+					minChunks: 2,
+					reuseExistingChunk: true,
 					enforce: true
 				}
 			}
@@ -119,6 +144,11 @@ module.exports = {
 			defaultAttribute: 'async'
 		}),
 		new OfflinePlugin(),
+		new HashedModuleIdsPlugin({
+			hashFunction: 'sha256',
+			hashDigest: 'hex',
+			hashDigestLength: 20
+		}),
 		new FriendlyErrorsWebpackPlugin()
 	]
 };
