@@ -23,7 +23,7 @@
     "css-loader": "^2.1.1",
     "eslint-config-xo-react": "^0.19.0",
     "eslint-plugin-react": "^7.12.4",
-    "eslint-plugin-react-hooks": "^1.5.0",
+    "eslint-plugin-react-hooks": "^1.5.1",
     "extract-css-chunks-webpack-plugin": "^4.0.1",
     "file-loader": "^3.0.1",
     "friendly-errors-webpack-plugin": "^1.7.0",
@@ -40,8 +40,9 @@
     "stylelint-processor-styled-components": "^1.5.2",
     "terser-webpack-plugin": "^1.2.3",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3",
+    "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1",
+    "webpack-pwa-manifest": "^4.0.0",
     "xo": "^0.24.0"
   },
   "dependencies": {
