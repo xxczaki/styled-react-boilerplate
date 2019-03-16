@@ -153,11 +153,12 @@ module.exports = {
 			name: 'Hello World',
 			short_name: 'Hello World',
 			description: 'Styled React Boilerplate Demo',
-			background_color: '#212121',
+			theme_color: '#212121',
 			icons: [
 				{
 					src: path.resolve('public/favicon.png'),
-					sizes: [32]
+					sizes: [36, 48, 72, 96, 144, 192, 512],
+					ios: true
 				}
 			]
 		}),
