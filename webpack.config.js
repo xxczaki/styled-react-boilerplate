@@ -2,9 +2,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const {HashedModuleIdsPlugin} = require('webpack');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
-const {HashedModuleIdsPlugin} = require('webpack');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 module.exports = {
@@ -33,8 +34,7 @@ module.exports = {
 					}
 				},
 				parallel: true,
-				cache: true,
-				sourceMap: true
+				cache: true
 			})
 		],
 		runtimeChunk: true,
@@ -143,12 +143,26 @@ module.exports = {
 			prefetch: /\.js$/,
 			defaultAttribute: 'async'
 		}),
-		new OfflinePlugin(),
 		new HashedModuleIdsPlugin({
 			hashFunction: 'sha256',
 			hashDigest: 'hex',
 			hashDigestLength: 20
 		}),
+		/* eslint-disable camelcase */
+		new WebpackPwaManifest({
+			name: 'Hello World',
+			short_name: 'Hello World',
+			description: 'Styled React Boilerplate Demo',
+			background_color: '#212121',
+			icons: [
+				{
+					src: path.resolve('public/favicon.png'),
+					sizes: [32]
+				}
+			]
+		}),
+		/* eslint-enable camelcase */
+		new OfflinePlugin(),
 		new FriendlyErrorsWebpackPlugin()
 	]
 };
