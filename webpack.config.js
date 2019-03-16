@@ -154,6 +154,7 @@ module.exports = {
 			short_name: 'Hello World',
 			description: 'Styled React Boilerplate Demo',
 			theme_color: '#212121',
+			background_color: '#212121',
 			icons: [
 				{
 					src: path.resolve('public/favicon.png'),
