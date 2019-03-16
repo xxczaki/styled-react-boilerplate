@@ -10,11 +10,14 @@
 
 ---
 
+![](https://lighthouse.now.sh/?perf=100&pwa=100&a11y=100&bp=100&seo=100)
+
 ## Highlights
 - Easier and less complex than [create-react-app](https://github.com/facebook/create-react-app)
 - Features styled-components
 - Uses React Hooks
 - Includes optimized Webpack & Babel configuration
+- Perfect Lighthouse score
 - Non-blocking CSS & fonts loading
 - Friendly errors & warnings
 - Ensures clean code with xo & stylelint
