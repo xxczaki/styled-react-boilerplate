@@ -3,6 +3,7 @@ const presets = [
 		targets: {
 			esmodules: true
 		},
+		corejs: 3,
 		useBuiltIns: 'usage'
 	}],
 	['@babel/preset-react']
