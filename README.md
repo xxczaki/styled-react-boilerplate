@@ -38,14 +38,14 @@
 │   │   └── container.js  # Example component 2
 │   │   └── counter.js    # Example component 3
 │   │   └── header.js     # Example component 4
-│   └── index.js          # Main file
+│   └── app.js            # Main page file
+│   └── index.js          # React DOM rendering options
 ├── .npmrc                # npm config
 ├── .stylelintrc          # stylelint config
 ├── .travis.yml           # Travis CI config
 ├── package.json          # Package config with scripts, list of dependencies etc.
 ├── webpack.config.js     # Webpack config
 ├── babel.config.js       # Babel config
-
 ```
 
 ## Usage
