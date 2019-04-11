@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import {hot} from 'react-hot-loader/root';
 
 // Button with ripple animation
 const Button = styled.button`
@@ -27,4 +26,4 @@ const Button = styled.button`
     }
 `;
 
-export default hot(Button);
+export default Button;

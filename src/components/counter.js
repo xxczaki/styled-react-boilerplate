@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {hot} from 'react-hot-loader/root';
 
 // Import button component
 import Button from './button';
@@ -11,9 +10,9 @@ const Counter = () => {
 	return (
 		<>
 			<Button onClick={() => setCount(count + 1)}>Click me!</Button>
-			<p>You clicked the button {count} times.</p>
+			<p>You clicked the button {count === 1 ? 'once' : `${count} times`}.</p>
 		</>
 	);
 };
 
-export default hot(Counter);
+export default Counter;

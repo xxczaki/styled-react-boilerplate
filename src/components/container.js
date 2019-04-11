@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import {hot} from 'react-hot-loader/root';
 
 // Flexbox container
 const Container = styled.div`
@@ -12,4 +11,4 @@ const Container = styled.div`
     padding-right: 15px;
 `;
 
-export default hot(Container);
+export default Container;
