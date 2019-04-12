@@ -40,7 +40,6 @@ module.exports = (env, argv) => {
 					cache: true
 				})
 			],
-			runtimeChunk: true,
 			splitChunks: {
 				chunks: 'all',
 				minSize: 30000,
@@ -61,7 +60,8 @@ module.exports = (env, argv) => {
 						enforce: true
 					}
 				}
-			}
+			},
+			runtimeChunk: true
 		},
 		devServer: {
 			contentBase: path.join(__dirname, 'dist'),
@@ -85,7 +85,7 @@ module.exports = (env, argv) => {
 					]
 				},
 				{
-					test: /\.(pdf|jpg|png|gif|svg|ico)$/,
+					test: /\.(pdf|jpg|png|webp|gif|svg|ico)$/,
 					use: [
 						'file-loader',
 						{
@@ -99,7 +99,9 @@ module.exports = (env, argv) => {
 									require('imagemin-pngquant')({
 										floyd: 0.5,
 										speed: 5
-									})
+									}),
+									require('imagemin-webp'),
+									require('imagemin-svgo')
 								]
 							}
 						}
@@ -122,12 +124,16 @@ module.exports = (env, argv) => {
 				template: './public/index.html',
 				favicon: './public/favicon.png',
 				minify: {
-					collapseWhitespace: true,
 					removeComments: true,
+					collapseWhitespace: true,
 					removeRedundantAttributes: true,
-					removeScriptTypeAttributes: true,
+					useShortDoctype: true,
+					removeEmptyAttributes: true,
 					removeStyleLinkTypeAttributes: true,
-					useShortDoctype: true
+					keepClosingSlash: true,
+					minifyJS: true,
+					minifyCSS: true,
+					minifyURLs: true
 				}
 			}),
 			new ExtractCssChunks(
