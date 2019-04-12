@@ -3,8 +3,9 @@ import {createGlobalStyle} from 'styled-components';
 import {hot} from 'react-hot-loader/root';
 
 // Import modern-normalize & fonts
-import 'typeface-open-sans';
 import 'modern-normalize/modern-normalize.css';
+import woff2 from '../public/fonts/open-sans-v16-latin-regular.woff2';
+import woff from '../public/fonts/open-sans-v16-latin-regular.woff';
 
 // Import Components
 import Container from './components/container';
@@ -13,8 +14,18 @@ import Counter from './components/counter';
 
 // Global Style
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: optional;
+    src: local('Open Sans Regular'), local('OpenSans-Regular'),
+        url('${woff2}') format('woff2'),
+        url('${woff}') format('woff'); 
+  }
+
   body {
-    font-family: Open Sans, monospace !important;
+    font-family: Open Sans, Segoe UI, Tahoma, monospace !important;
     background: #212121;
     color: #fff;
     padding: 1em;
