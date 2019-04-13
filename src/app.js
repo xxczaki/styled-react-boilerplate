@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: Open Sans, Segoe UI, Tahoma, monospace !important;
+    font-family: Open Sans, Segoe UI, Tahoma, sans-serif !important;
     background: #212121;
     color: #fff;
     padding: 1em;
