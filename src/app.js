@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
-    font-display: optional;
+    font-display: swap;
     src: local('Open Sans Regular'), local('OpenSans-Regular'),
         url('${woff2}') format('woff2'),
         url('${woff}') format('woff'); 
