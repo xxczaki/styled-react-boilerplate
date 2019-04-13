@@ -21,7 +21,7 @@
 - Non-blocking CSS & fonts loading
 - Friendly errors & warnings
 - Ensures clean code with xo & stylelint
-- Normalizes default style with modern-normalize
+- Normalizes default browser style with modern-normalize
 - HTML template with social media meta tags
 - Targets the latest browsers
 - Works offline
@@ -72,6 +72,7 @@
 I recommend to use either [Zeit Now](https://now.sh) or [Netlify](https://netlify.com) for hosting your site.
 
 [![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/xxczaki/styled-react-boilerplate)
+
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/xxczaki/styled-react-boilerplate)
 
 ## TODO
