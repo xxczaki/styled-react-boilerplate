@@ -80,6 +80,10 @@ I recommend to use either [Zeit Now](https://now.sh) or [Netlify](https://netlif
 - [ ] Testing
 - [x] PWA
 
+## Related
+
+- [static-webpack-boilerplate](https://github.com/xxczaki/static-webpack-boilerplate)
+
 ### License
 
 MIT
