@@ -6,6 +6,7 @@ const {HashedModuleIdsPlugin} = require('webpack');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const {GenerateSW} = require('workbox-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 module.exports = (env, argv) => {
@@ -79,6 +80,7 @@ module.exports = (env, argv) => {
 				{
 					test: /\.css$/,
 					use: [
+						'cache-loader',
 						ExtractCssChunks.loader,
 						'css-loader',
 						'clean-css-loader'
@@ -87,6 +89,7 @@ module.exports = (env, argv) => {
 				{
 					test: /\.(jpe?g|png|webp|gif|svg|ico)$/i,
 					use: [
+						'cache-loader',
 						{
 							loader: 'url-loader',
 							options: {
@@ -114,13 +117,16 @@ module.exports = (env, argv) => {
 				},
 				{
 					test: /\.(woff2|woff)$/,
-					use: [{
-						loader: 'file-loader',
-						options: {
-							name: '[name].[ext]',
-							outputPath: 'fonts/'
+					use: [
+						'cache-loader',
+						{
+							loader: 'file-loader',
+							options: {
+								name: '[name].[ext]',
+								outputPath: 'fonts/'
+							}
 						}
-					}]
+					]
 				}
 			]
 		},
@@ -179,6 +185,7 @@ module.exports = (env, argv) => {
 				clientsClaim: true,
 				skipWaiting: true
 			}),
+			new HardSourceWebpackPlugin(),
 			new FriendlyErrorsWebpackPlugin()
 		]
 	};
