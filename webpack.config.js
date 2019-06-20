@@ -24,20 +24,26 @@ module.exports = (env, argv) => {
 			minimizer: [
 				new TerserPlugin({
 					terserOptions: {
-						warnings: false,
 						compress: {
-							comparisons: false
+							ecma: 5,
+							warnings: false,
+							comparisons: false,
+							inline: 2
 						},
-						parse: {},
-						mangle: true,
+						parse: {
+							ecma: 8
+						},
+						mangle: {safari10: true},
 						output: {
+							ecma: 5,
+							safari10: true,
 							comments: false,
-							/* eslint-disable camelcase */
+							/* eslint-disable-next-line camelcase */
 							ascii_only: true
-						/* eslint-enable camelcase */
 						}
 					},
 					parallel: true,
+					sourceMap: false,
 					cache: true
 				})
 			],
