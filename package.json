@@ -6,7 +6,9 @@
     "start": "webpack-dev-server --hot --open --mode development",
     "build": "webpack --mode production",
     "now-build": "npm run build",
-    "test": "xo && stylelint './src/**/*.js'"
+    "test": "xo && stylelint './src/**/*.js'",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "main": "src/index.js",
   "repository": "https://github.com/xxczaki/styled-react-boilerplate",
@@ -56,7 +58,8 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-hot-loader": "^4.11.1",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "snyk": "^1.189.0"
   },
   "xo": {
     "nodeVersion": ">=10",
@@ -74,5 +77,6 @@
     "rules": {
       "import/no-unassigned-import": "off"
     }
-  }
+  },
+  "snyk": true
 }
