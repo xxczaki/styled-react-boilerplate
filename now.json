@@ -1,6 +1,5 @@
 {
     "version": 2,
-    "alias": ["styled-react-boilerplate.now.sh"],
     "builds": [
         { "src": "package.json", "use": "@now/static-build", "config": {"distDir": "dist"} }
       ],
