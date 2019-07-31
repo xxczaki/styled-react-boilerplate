@@ -147,6 +147,7 @@ module.exports = (env, argv) => {
 					useShortDoctype: true,
 					removeEmptyAttributes: true,
 					removeStyleLinkTypeAttributes: true,
+					removeScriptTypeAttributes: true,
 					keepClosingSlash: true,
 					minifyJS: true,
 					minifyCSS: true,
@@ -161,7 +162,7 @@ module.exports = (env, argv) => {
 				}
 			),
 			new ScriptExtHtmlWebpackPlugin({
-				prefetch: /\.js$/,
+				prefetch: [/\.js$/],
 				defaultAttribute: 'async'
 			}),
 			new HashedModuleIdsPlugin({
