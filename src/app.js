@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import {createGlobalStyle} from 'styled-components';
 import {hot} from 'react-hot-loader/root';
 
@@ -10,7 +10,7 @@ import woff from '../public/fonts/open-sans-v16-latin-regular.woff';
 // Import Components
 import Container from './components/container';
 import Header from './components/header';
-import Counter from './components/counter';
+const Counter = React.lazy(() => import('./components/counter'));
 
 // Global Style
 const GlobalStyle = createGlobalStyle`
@@ -53,7 +53,9 @@ const App = () => {
 		<Container>
 			<Header>Hello World ⚡</Header>
 			<p>Example site using Styled React Boilerplate!</p>
-			<Counter/>
+			<Suspense fallback={<div>Loading...</div>}>
+				<Counter/>
+			</Suspense>
 			<GlobalStyle/>
 		</Container>
 	);
