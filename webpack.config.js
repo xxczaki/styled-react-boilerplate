@@ -13,11 +13,16 @@ module.exports = (env, argv) => {
 	const {mode} = argv;
 
 	return {
-		entry: './src/index.js',
+		entry: ['react-hot-loader/patch', './src/index.js'],
 		output: {
 			filename: '[name].[hash].js',
 			chunkFilename: '[name].[chunkhash].chunk.js',
 			path: path.resolve(__dirname, 'dist')
+		},
+		resolve: {
+			alias: {
+				'react-dom': '@hot-loader/react-dom'
+			}
 		},
 		optimization: {
 			minimize: mode !== 'development',
@@ -52,19 +57,39 @@ module.exports = (env, argv) => {
 				minSize: 30000,
 				minChunks: 1,
 				maxAsyncRequests: 5,
-				maxInitialRequests: 3,
+				maxInitialRequests: 20,
 				name: true,
 				cacheGroups: {
-					commons: {
-						test: /[\\/]node_modules[\\/]/,
-						name: 'vendor',
-						chunks: 'all'
-					},
-					main: {
+					default: false,
+					vendors: false,
+					framework: {
+						name: 'framework',
 						chunks: 'all',
+						test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+						priority: 40
+					},
+					lib: {
+						test(module) {
+							return module.size() > 160000;
+						},
+						name(module) {
+							return /node_modules\/(.*)/.exec(module.identifier())[1]
+								.replace(/\/|\\/g, '_');
+						},
+						priority: 30,
+						minChunks: 1,
+						reuseExistingChunk: true
+					},
+					commons: {
+						name: 'commons',
+						chunks: 'all',
+						priority: 20
+					},
+					shared: {
+						name: false,
+						priority: 10,
 						minChunks: 2,
-						reuseExistingChunk: true,
-						enforce: true
+						reuseExistingChunk: true
 					}
 				}
 			},
@@ -81,7 +106,7 @@ module.exports = (env, argv) => {
 				{
 					test: /\.js$/,
 					exclude: /node_modules/,
-					use: ['react-hot-loader/webpack', 'babel-loader?cacheDirectory=true']
+					use: 'babel-loader?cacheDirectory=true'
 				},
 				{
 					test: /\.css$/,
