@@ -74,9 +74,9 @@ I recommend to use either [Zeit Now](https://now.sh) or [Netlify](https://netlif
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/xxczaki/styled-react-boilerplate)
 
 ## TODO
-
-- [ ] Testing
 - [x] PWA
+- [ ] module & nomodule support
+- [ ] Testing
 
 ## Related
 
