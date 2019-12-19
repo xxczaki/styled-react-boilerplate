@@ -1,80 +1,79 @@
 {
-  "name": "styled-react-boilerplate",
-  "version": "1.0.0",
-  "description": "Minimal & Modern boilerplate for building apps with React & styled-components",
-  "scripts": {
-    "start": "webpack-dev-server --hot --open --mode development",
-    "build": "webpack --mode production",
-    "now-build": "npm run build",
-    "test": "xo && stylelint './src/**/*.js'"
-  },
-  "main": "src/index.js",
-  "repository": "https://github.com/xxczaki/styled-react-boilerplate",
-  "author": "Antoni Kepinski",
-  "license": "MIT",
-  "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.6.3",
-    "@babel/preset-react": "^7.6.3",
-    "babel-eslint": "^10.0.3",
-    "babel-loader": "^8.0.6",
-    "babel-plugin-styled-components": "^1.10.6",
-    "cache-loader": "^4.1.0",
-    "clean-css-loader": "^2.0.0",
-    "css-loader": "^3.2.0",
-    "eslint-config-xo-react": "^0.20.0",
-    "eslint-plugin-react": "^7.16.0",
-    "eslint-plugin-react-hooks": "^2.2.0",
-    "extract-css-chunks-webpack-plugin": "^4.6.0",
-    "file-loader": "^4.2.0",
-    "friendly-errors-webpack-plugin": "^1.7.0",
-    "hard-source-webpack-plugin": "^0.13.1",
-    "html-webpack-plugin": "^3.2.0",
-    "imagemin": "^7.0.0",
-    "imagemin-mozjpeg": "^8.0.0",
-    "imagemin-pngquant": "^8.0.0",
-    "imagemin-svgo": "^7.0.0",
-    "imagemin-webp": "^5.1.0",
-    "img-loader": "^3.0.1",
-    "script-ext-html-webpack-plugin": "^2.1.4",
-    "stylelint": "^11.1.1",
-    "stylelint-config-recommended": "^3.0.0",
-    "stylelint-config-styled-components": "^0.1.1",
-    "stylelint-processor-styled-components": "^1.8.0",
-    "terser-webpack-plugin": "^2.2.1",
-    "url-loader": "^2.2.0",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.9",
-    "webpack-dev-server": "^3.9.0",
-    "webpack-nomodule-plugin": "^1.0.1",
-    "webpack-pwa-manifest": "^4.1.1",
-    "workbox-webpack-plugin": "^4.3.1",
-    "xo": "^0.25.3"
-  },
-  "dependencies": {
-    "@hot-loader/react-dom": "^16.10.2",
-    "core-js": "^3.3.4",
-    "modern-normalize": "^0.5.0",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
-    "react-hot-loader": "^4.12.15",
-    "styled-components": "^5.0.0-beta.11"
-  },
-  "xo": {
-    "nodeVersion": ">=10",
-    "parser": "babel-eslint",
-    "envs": [
-      "node",
-      "browser"
-    ],
-    "extends": "xo-react",
-    "settings": {
-      "react": {
-        "version": "16.11"
-      }
+    "name": "styled-react-boilerplate",
+    "version": "1.0.0",
+    "description": "Minimal & Modern boilerplate for building apps with React & styled-components",
+    "scripts": {
+        "start": "webpack-dev-server --hot --open --mode development",
+        "build": "webpack --mode production",
+        "now-build": "npm run build",
+        "test": "xo && stylelint './src/**/*.js'"
     },
-    "rules": {
-      "import/no-unassigned-import": "off"
+    "main": "src/index.js",
+    "repository": "https://github.com/xxczaki/styled-react-boilerplate",
+    "author": "Antoni Kepinski",
+    "license": "MIT",
+    "devDependencies": {
+        "@babel/core": "^7.7.7",
+        "@babel/preset-env": "^7.7.7",
+        "@babel/preset-react": "^7.7.4",
+        "@pieh/friendly-errors-webpack-plugin": "^1.7.0-chalk-2",
+        "babel-eslint": "^10.0.3",
+        "babel-loader": "^8.0.6",
+        "babel-plugin-styled-components": "^1.10.6",
+        "clean-css-loader": "^2.0.0",
+        "css-loader": "^3.4.0",
+        "eslint-config-xo-react": "^0.20.0",
+        "eslint-plugin-react": "^7.17.0",
+        "eslint-plugin-react-hooks": "^2.3.0",
+        "extract-css-chunks-webpack-plugin": "^4.7.1",
+        "file-loader": "^5.0.2",
+        "hard-source-webpack-plugin": "^0.13.1",
+        "html-webpack-plugin": "^3.2.0",
+        "imagemin": "^7.0.1",
+        "imagemin-mozjpeg": "^8.0.0",
+        "imagemin-pngquant": "^8.0.0",
+        "imagemin-svgo": "^7.0.0",
+        "imagemin-webp": "^5.1.0",
+        "img-loader": "^3.0.1",
+        "script-ext-html-webpack-plugin": "^2.1.4",
+        "stylelint": "^12.0.0",
+        "stylelint-config-recommended": "^3.0.0",
+        "stylelint-config-styled-components": "^0.1.1",
+        "stylelint-processor-styled-components": "^1.9.0",
+        "terser-webpack-plugin": "^2.3.1",
+        "url-loader": "^3.0.0",
+        "webpack": "^4.41.4",
+        "webpack-cli": "^3.3.10",
+        "webpack-dev-server": "^3.10.1",
+        "webpack-nomodule-plugin": "^1.0.1",
+        "webpack-pwa-manifest": "^4.1.1",
+        "workbox-webpack-plugin": "^4.3.1",
+        "xo": "^0.25.3"
+    },
+    "dependencies": {
+        "@hot-loader/react-dom": "^16.11.0",
+        "core-js": "^3.6.0",
+        "modern-normalize": "^0.5.0",
+        "react": "^16.12.0",
+        "react-dom": "^16.12.0",
+        "react-hot-loader": "^4.12.18",
+        "styled-components": "^4.4.1"
+    },
+    "xo": {
+        "nodeVersion": ">=10",
+        "parser": "babel-eslint",
+        "envs": [
+            "node",
+            "browser"
+        ],
+        "extends": "xo-react",
+        "settings": {
+            "react": {
+                "version": "16.11"
+            }
+        },
+        "rules": {
+            "import/no-unassigned-import": "off"
+        }
     }
-  }
 }
