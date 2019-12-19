@@ -1,13 +1,13 @@
 const path = require('path');
+const crypto = require('crypto');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const {HashedModuleIdsPlugin} = require('webpack');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const {GenerateSW} = require('workbox-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('@pieh/friendly-errors-webpack-plugin');
 
 module.exports = (env, argv) => {
 	const {mode} = argv;
@@ -15,9 +15,9 @@ module.exports = (env, argv) => {
 	return {
 		entry: ['react-hot-loader/patch', './src/index.js'],
 		output: {
-			filename: '[name].[hash].js',
-			chunkFilename: '[name].[chunkhash].chunk.js',
-			path: path.resolve(__dirname, 'dist')
+			path: path.resolve(__dirname, 'dist'),
+			filename: mode === 'production' ? '[name].[chunkhash].js' : '[name].js',
+			chunkFilename: mode === 'production' ? '[name].[chunkhash].chunk.js' : '[name].chunk.js'
 		},
 		resolve: {
 			alias: {
@@ -54,27 +54,27 @@ module.exports = (env, argv) => {
 			],
 			splitChunks: {
 				chunks: 'all',
-				minSize: 30000,
-				minChunks: 1,
-				maxAsyncRequests: 5,
-				maxInitialRequests: 20,
-				name: true,
 				cacheGroups: {
 					default: false,
 					vendors: false,
 					framework: {
-						name: 'framework',
 						chunks: 'all',
-						test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
-						priority: 40
+						name: 'framework',
+						// This regex ignores nested copies of framework libraries so they're
+						// bundled with their issuer.
+						// https://github.com/zeit/next.js/pull/9012
+						test: /(?<!node_modules.*)[\\/]node_modules[\\/](react|react-dom|scheduler|prop-types|use-subscription)[\\/]/,
+						priority: 40,
+						// Don't let webpack eliminate this chunk (prevents this chunk from
+						// becoming a part of the commons chunk)
+						enforce: true
 					},
 					lib: {
 						test(module) {
-							return module.size() > 160000;
-						},
-						name(module) {
-							return /node_modules\/(.*)/.exec(module.identifier())[1]
-								.replace(/\/|\\/g, '_');
+							return (
+								module.size() > 160000 &&
+						/node_modules[/\\]/.test(module.identifier())
+							);
 						},
 						priority: 30,
 						minChunks: 1,
@@ -82,21 +82,33 @@ module.exports = (env, argv) => {
 					},
 					commons: {
 						name: 'commons',
-						chunks: 'all',
+						minChunks: 2,
 						priority: 20
 					},
 					shared: {
-						name: false,
+						name(module, chunks) {
+							return crypto
+								.createHash('sha1')
+								.update(
+									chunks.reduce(
+										(acc, chunk) => {
+											return acc + chunk.name;
+										},
+										''
+									)
+								)
+								.digest('hex');
+						},
 						priority: 10,
 						minChunks: 2,
 						reuseExistingChunk: true
 					}
-				}
-			},
-			runtimeChunk: true
+				},
+				maxInitialRequests: 25,
+				minSize: 20000
+			}
 		},
 		devServer: {
-			contentBase: path.join(__dirname, 'dist'),
 			compress: true,
 			quiet: true,
 			hot: true
@@ -104,14 +116,13 @@ module.exports = (env, argv) => {
 		module: {
 			rules: [
 				{
-					test: /\.js$/,
+					test: /\.jsx?$/,
 					exclude: /node_modules/,
 					use: 'babel-loader?cacheDirectory=true'
 				},
 				{
 					test: /\.css$/,
 					use: [
-						'cache-loader',
 						ExtractCssChunks.loader,
 						'css-loader',
 						'clean-css-loader'
@@ -120,14 +131,7 @@ module.exports = (env, argv) => {
 				{
 					test: /\.(jpe?g|png|webp|gif|svg|ico)$/i,
 					use: [
-						'cache-loader',
-						{
-							loader: 'url-loader',
-							options: {
-								limit: 8192,
-								fallback: 'file-loader?name="[path][name].[ext]"'
-							}
-						},
+						'file-loader?outputPath=public',
 						{
 							loader: 'img-loader',
 							options: {
@@ -147,16 +151,9 @@ module.exports = (env, argv) => {
 					]
 				},
 				{
-					test: /\.(woff2|woff)$/,
+					test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
 					use: [
-						'cache-loader',
-						{
-							loader: 'file-loader',
-							options: {
-								name: '[name].[ext]',
-								outputPath: 'fonts/'
-							}
-						}
+						'file-loader'
 					]
 				}
 			]
@@ -189,11 +186,6 @@ module.exports = (env, argv) => {
 			new ScriptExtHtmlWebpackPlugin({
 				prefetch: [/\.js$/],
 				defaultAttribute: 'async'
-			}),
-			new HashedModuleIdsPlugin({
-				hashFunction: 'sha256',
-				hashDigest: 'hex',
-				hashDigestLength: 20
 			}),
 			/* eslint-disable camelcase */
 			new WebpackPwaManifest({
