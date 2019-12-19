@@ -2,18 +2,19 @@
 
 > Minimal & Modern Boilerplate for building apps with React & styled-components
 
-[![Build Status](https://travis-ci.org/xxczaki/styled-react-boilerplate.svg?branch=master)](https://travis-ci.org/xxczaki/styled-react-boilerplate) 
+[![Build Status](https://travis-ci.org/xxczaki/styled-react-boilerplate.svg?branch=master)](https://travis-ci.org/xxczaki/styled-react-boilerplate)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 
-[**Demo Site**](https://styled-react-boilerplate.now.sh)
+[**Demo Site**](https://styled-react-boilerplate.now.sh) •
+[**FAQ**](#faq)
 
 ---
 
 ![](https://lighthouse.now.sh/?perf=100&pwa=100&a11y=100&bp=100&seo=100)
 
 ## Highlights
-- Easier and less complex than [create-react-app](https://github.com/facebook/create-react-app)
+- Less complex than [create-react-app](https://github.com/facebook/create-react-app)
 - Features styled-components
 - Uses React Hooks
 - Includes optimized Webpack & Babel configuration
@@ -29,21 +30,18 @@
 
 ## File Tree
 ```bash
-├── public                # Folder with HTML template & favicon
-│   ├── favicon.png       # Example favicon
+├── public                # Folder for static assets
+│   ├── favicon.png       # Favicon
 │   └── index.html        # HTML template
-├── src                   # Main folder with index.js & components
+├── src                   # Main folder
 │   ├── components        # Subfolder with components
-│   │   ├── button.js     # Example component 1
-│   │   └── container.js  # Example component 2
-│   │   └── counter.js    # Example component 3
-│   │   └── header.js     # Example component 4
+│   │   ├── button.js
+│   │   └── container.js
+│   │   └── counter.js
+│   │   └── header.js
+│   │   └── image.js 
 │   └── app.js            # Main page file
-│   └── index.js          # React DOM rendering options
-├── .npmrc                # npm config
-├── .stylelintrc          # stylelint config
-├── .travis.yml           # Travis CI config
-├── package.json          # Package config with scripts, list of dependencies etc.
+│   └── index.js          # React DOM, service worker config
 ├── webpack.config.js     # Webpack config
 ├── babel.config.js       # Babel config
 ```
@@ -67,11 +65,31 @@
  $ npm run build
 ```
 
-## Deploying
+## FAQ
+
+### How to deploy my app?
 
 I recommend to use either [Zeit Now](https://now.sh) or [Netlify](https://netlify.com) for hosting your site.
 
+[![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/new/project?template=https://github.com/xxczaki/styled-react-boilerplate)
+
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/xxczaki/styled-react-boilerplate)
+
+### How to add & use static assets (ex. images)?
+
+Place them in the `public` directory in the root of the project. You can then use them like in the example below:
+
+```js
+// Import files from the `public` directory
+import imgSrc from '../../public/favicon.png';
+
+// Then you can reference it like so:
+const Image = () => (
+	<img src={imgSrc} alt="⚡"/>
+);
+```
+
+Check out the [`Image` component](src/components/image.js) for a live example.
 
 ## TODO
 - [x] PWA
