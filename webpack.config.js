@@ -6,7 +6,6 @@ const TerserPlugin = require('terser-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const {GenerateSW} = require('workbox-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('@pieh/friendly-errors-webpack-plugin');
 
 module.exports = (env, argv) => {
@@ -60,13 +59,8 @@ module.exports = (env, argv) => {
 					framework: {
 						chunks: 'all',
 						name: 'framework',
-						// This regex ignores nested copies of framework libraries so they're
-						// bundled with their issuer.
-						// https://github.com/zeit/next.js/pull/9012
 						test: /(?<!node_modules.*)[\\/]node_modules[\\/](react|react-dom|scheduler|prop-types|use-subscription)[\\/]/,
 						priority: 40,
-						// Don't let webpack eliminate this chunk (prevents this chunk from
-						// becoming a part of the commons chunk)
 						enforce: true
 					},
 					lib: {
@@ -131,7 +125,12 @@ module.exports = (env, argv) => {
 				{
 					test: /\.(jpe?g|png|webp|gif|svg|ico)$/i,
 					use: [
-						'file-loader?outputPath=public',
+						{
+							loader: 'file-loader',
+							options: {
+								outputPath: 'public'
+							}
+						},
 						{
 							loader: 'img-loader',
 							options: {
@@ -209,7 +208,6 @@ module.exports = (env, argv) => {
 				clientsClaim: true,
 				skipWaiting: true
 			}),
-			new HardSourceWebpackPlugin(),
 			new FriendlyErrorsWebpackPlugin()
 		]
 	};
