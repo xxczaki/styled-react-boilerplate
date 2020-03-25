@@ -67,8 +67,20 @@ module.exports = (env, argv) => {
 						test(module) {
 							return (
 								module.size() > 160000 &&
-						/node_modules[/\\]/.test(module.identifier())
+							/node_modules[/\\]/.test(module.identifier())
 							);
+						},
+						name(module) {
+							const hash = crypto.createHash('sha1');
+							if (module.type === 'css/extract-css-chunks') {
+								module.updateHash(hash);
+							} else if (!module.libIdent) {
+								throw new Error(
+									`Encountered unknown module type: ${module.type}. Please open an issue.`
+								);
+							}
+
+							return hash.digest('hex').slice(0, 8);
 						},
 						priority: 30,
 						minChunks: 1,
@@ -130,22 +142,6 @@ module.exports = (env, argv) => {
 							options: {
 								outputPath: 'public'
 							}
-						},
-						{
-							loader: 'img-loader',
-							options: {
-								plugins: mode === 'production' && [
-									require('imagemin-mozjpeg')({
-										progressive: true
-									}),
-									require('imagemin-pngquant')({
-										floyd: 0.5,
-										speed: 5
-									}),
-									require('imagemin-webp'),
-									require('imagemin-svgo')
-								]
-							}
 						}
 					]
 				},
@@ -203,10 +199,7 @@ module.exports = (env, argv) => {
 			}),
 			/* eslint-enable camelcase */
 			new GenerateSW({
-				swDest: 'sw.js',
-				importWorkboxFrom: 'local',
-				clientsClaim: true,
-				skipWaiting: true
+				swDest: 'sw.js'
 			}),
 			new FriendlyErrorsWebpackPlugin()
 		]
