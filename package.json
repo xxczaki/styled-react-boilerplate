@@ -13,50 +13,44 @@
     "author": "Antoni Kepinski",
     "license": "MIT",
     "devDependencies": {
-        "@babel/core": "^7.8.3",
-        "@babel/preset-env": "^7.8.3",
-        "@babel/preset-react": "^7.8.3",
+        "@babel/core": "^7.9.0",
+        "@babel/preset-env": "^7.9.0",
+        "@babel/preset-react": "^7.9.4",
         "@pieh/friendly-errors-webpack-plugin": "^1.7.0-chalk-2",
-        "babel-eslint": "^10.0.3",
-        "babel-loader": "^8.0.6",
-        "babel-plugin-styled-components": "^1.10.6",
+        "babel-eslint": "^10.1.0",
+        "babel-loader": "^8.1.0",
+        "babel-plugin-styled-components": "^1.10.7",
         "clean-css-loader": "^2.0.0",
         "css-loader": "^3.4.2",
-        "eslint-config-xo-react": "^0.22.0",
-        "eslint-plugin-react": "^7.18.0",
-        "eslint-plugin-react-hooks": "^2.3.0",
+        "eslint-config-xo-react": "^0.23.0",
+        "eslint-plugin-react": "^7.19.0",
+        "eslint-plugin-react-hooks": "^2.5.1",
         "extract-css-chunks-webpack-plugin": "^4.7.4",
-        "file-loader": "^5.0.2",
-        "html-webpack-plugin": "^3.2.0",
-        "imagemin": "^7.0.1",
-        "imagemin-mozjpeg": "^8.0.0",
-        "imagemin-pngquant": "^8.0.0",
-        "imagemin-svgo": "^7.0.0",
-        "imagemin-webp": "^5.1.0",
-        "img-loader": "^3.0.1",
+        "file-loader": "^6.0.0",
+        "html-webpack-plugin": "^4.0.1",
         "script-ext-html-webpack-plugin": "^2.1.4",
-        "stylelint": "^13.0.0",
+        "stylelint": "^13.2.1",
         "stylelint-config-recommended": "^3.0.0",
         "stylelint-config-styled-components": "^0.1.1",
-        "stylelint-processor-styled-components": "^1.9.0",
-        "terser-webpack-plugin": "^2.3.2",
-        "url-loader": "^3.0.0",
-        "webpack": "^4.41.5",
-        "webpack-cli": "^3.3.10",
-        "webpack-dev-server": "^3.10.1",
+        "stylelint-processor-styled-components": "^1.10.0",
+        "terser-webpack-plugin": "^2.3.5",
+        "url-loader": "^4.0.0",
+        "webpack": "^4.42.1",
+        "webpack-cli": "^3.3.11",
+        "webpack-dev-server": "^3.10.3",
         "webpack-nomodule-plugin": "^1.0.1",
-        "webpack-pwa-manifest": "^4.1.1",
-        "workbox-webpack-plugin": "^4.3.1",
-        "xo": "^0.25.3"
+        "webpack-pwa-manifest": "^4.2.0",
+        "workbox-webpack-plugin": "^5.1.2",
+        "xo": "^0.28.0"
     },
     "dependencies": {
-        "@hot-loader/react-dom": "^16.11.0",
+        "@hot-loader/react-dom": "^16.13.0",
         "core-js": "^3.6.4",
         "modern-normalize": "^0.6.0",
-        "react": "^16.12.0",
-        "react-dom": "^16.12.0",
-        "react-hot-loader": "^4.12.19",
-        "styled-components": "^5.0.0"
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-hot-loader": "^4.12.20",
+        "styled-components": "^5.0.1"
     },
     "xo": {
         "nodeVersion": ">=10",
@@ -68,11 +62,12 @@
         "extends": "xo-react",
         "settings": {
             "react": {
-                "version": "16.12"
+                "version": "16.13"
             }
         },
         "rules": {
-            "import/no-unassigned-import": "off"
+            "import/no-unassigned-import": "off",
+            "import/no-extraneous-dependencies": "off"
         }
     }
 }
