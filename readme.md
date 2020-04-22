@@ -69,7 +69,7 @@
 
 ### How to deploy my app?
 
-I recommend to use either [Zeit Now](https://now.sh) or [Netlify](https://netlify.com) for hosting your site.
+I recommend to use either [Vercel](https://vercel.com) or [Netlify](https://netlify.com) for hosting your site.
 
 [![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/new/project?template=https://github.com/xxczaki/styled-react-boilerplate)
 
