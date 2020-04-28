@@ -3,8 +3,8 @@
     "version": "1.0.0",
     "description": "Minimal & Modern boilerplate for building apps with React & styled-components",
     "scripts": {
-        "start": "webpack-dev-server --hot --mode development",
-        "build": "webpack --mode production",
+        "start": "NODE_ENV=development webpack-dev-server",
+        "build": "NODE_ENV=production webpack",
         "now-build": "npm run build",
         "test": "xo && stylelint './src/**/*.js' && jest",
         "test:watch": "jest --watch",
