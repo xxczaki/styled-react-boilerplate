@@ -1,5 +1,5 @@
 import React from 'react';
-import {render} from 'react-dom';
+import {createRoot} from 'react-dom';
 import App from './app';
 
 const root = document.createElement('div');
@@ -16,4 +16,4 @@ if ('serviceWorker' in navigator) {
 	});
 }
 
-render(<App/>, root);
+createRoot(root).render(<App/>);
