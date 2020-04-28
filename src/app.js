@@ -1,6 +1,5 @@
 import React, {Suspense} from 'react';
 import {createGlobalStyle} from 'styled-components';
-import {hot} from 'react-hot-loader/root';
 
 // Import assets
 import 'modern-normalize/modern-normalize.css';
@@ -51,4 +50,4 @@ const App = () => {
 	);
 };
 
-export default hot(App);
+export default App;
