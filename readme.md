@@ -14,9 +14,11 @@
 ![](https://lighthouse.now.sh/?perf=100&pwa=100&a11y=100&bp=100&seo=100)
 
 ## Highlights
+
 - Less complex than [create-react-app](https://github.com/facebook/create-react-app)
 - Features styled-components
 - Uses React Hooks
+- Uses concurrent mode
 - Includes optimized Webpack & Babel configuration
 - Perfect Lighthouse score
 - Non-blocking CSS & fonts loading
@@ -26,7 +28,7 @@
 - HTML template with social media meta tags
 - Targets the latest browsers
 - Works offline
-- Preconfigured hot reloading using [react-hot-loader](https://github.com/gaearon/react-hot-loader)
+- Preconfigured React Refresh using [react-refresh-webpack-plugin](https://github.com/pmmmwh/react-refresh-webpack-plugin)
 
 ## File Tree
 ```bash
@@ -92,9 +94,10 @@ const Image = () => (
 Check out the [`Image` component](src/components/image.js) for a live example.
 
 ## TODO
+
 - [x] PWA
+- [x] Testing
 - [ ] module & nomodule support
-- [ ] Testing
 
 ## Related
 
