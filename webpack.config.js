@@ -198,6 +198,6 @@ module.exports = {
 			swDest: 'sw.js'
 		}),
 		new FriendlyErrorsWebpackPlugin(),
-		isDevelopment && new ReactRefreshWebpackPlugin({disableRefreshCheck: true})
+		isDevelopment && new ReactRefreshWebpackPlugin()
 	].filter(Boolean)
 };
