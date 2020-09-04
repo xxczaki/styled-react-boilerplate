@@ -72,8 +72,7 @@
 
 I recommend to use either [Vercel](https://vercel.com) or [Netlify](https://netlify.com) for hosting your site.
 
-[![Deploy with ZEIT Now](https://vercel.com/button)](https://vercel.com/new/project?template=https://github.com/xxczaki/styled-react-boilerplate)
-
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/project?template=https://github.com/xxczaki/styled-react-boilerplate)
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/xxczaki/styled-react-boilerplate)
 
 ### How to add & use static assets (ex. images)?
