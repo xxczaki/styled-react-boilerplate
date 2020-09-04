@@ -21,12 +21,12 @@ const GlobalStyle = createGlobalStyle`
     font-display: fallback;
     src: local('Open Sans Regular'), local('OpenSans-Regular'),
         url('${woff2}') format('woff2'),
-        url('${woff}') format('woff'); 
+        url('${woff}') format('woff');
   }
 
   body {
     font-family: Open Sans, Segoe UI, Tahoma, sans-serif !important;
-    background: #212121;
+    background: #131415;
     color: #fff;
     padding: 1em;
     line-height: 1.8em;
