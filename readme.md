@@ -18,7 +18,6 @@
 - Less complex than [create-react-app](https://github.com/facebook/create-react-app)
 - Features styled-components
 - Uses React Hooks
-- Uses concurrent mode
 - Includes optimized Webpack & Babel configuration
 - Perfect Lighthouse score
 - Non-blocking CSS & fonts loading
@@ -41,7 +40,7 @@
 │   │   └── container.js
 │   │   └── counter.js
 │   │   └── header.js
-│   │   └── image.js 
+│   │   └── image.js
 │   └── app.js            # Main page file
 │   └── index.js          # React DOM, service worker config
 ├── webpack.config.js     # Webpack config
@@ -53,15 +52,15 @@
 # Install dependencies
 
  $ npm install
- 
+
 # Start webpack-dev-server at port 8080
 
  $ npm start
- 
+
 # Run linters
 
  $ npm test
- 
+
 # Build app for production (gets output in the 'dist' directory)
 
  $ npm run build
